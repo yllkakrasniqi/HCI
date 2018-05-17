@@ -9,7 +9,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class CLIENTS extends JFrame {
 
@@ -35,19 +38,27 @@ public class CLIENTS extends JFrame {
 	 * Create the frame.
 	 */
 	public CLIENTS() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CLIENTS.class.getResource("/Other/rcpb.png")));
+		setTitle("Hotel Managment System");
+		setResizable(false);
+		
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 480);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JButton btnBack = new JButton("BACK");
+		JButton btnBack = new JButton("");
+		btnBack.setIcon(new ImageIcon(CLIENTS.class.getResource("/Other/left-arrow.png")));
+		btnBack.setFocusPainted(false);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				dispose();
 				MainWindow window = new MainWindow();
-				window.frame.setVisible(true);
+				window.frmHotelManagmentSystem.setVisible(true);
 			}
 		});
 		menuBar.add(btnBack);
