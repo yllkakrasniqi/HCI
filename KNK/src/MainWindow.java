@@ -70,7 +70,7 @@ public class MainWindow {
 		frmHotelManagmentSystem.setBounds(100, 100, 750, 480);
 		frmHotelManagmentSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmHotelManagmentSystem.getContentPane().setLayout(null);
-		
+		frmHotelManagmentSystem.setLocationRelativeTo(null);
 		
 		
 		JPanel panel = new JPanel();
@@ -105,6 +105,7 @@ public class MainWindow {
 				frmHotelManagmentSystem.setVisible(false);
 				HOTELS hot=new HOTELS();
 				hot.setVisible(true);
+				hot.setLocationRelativeTo(null);
 			}
 		});
 		
@@ -123,6 +124,7 @@ public class MainWindow {
 				frmHotelManagmentSystem.dispose();
 				CLIENTS cli=new CLIENTS();
 				cli.setVisible(true);
+				cli.setLocationRelativeTo(null);
 			}
 		});
 		

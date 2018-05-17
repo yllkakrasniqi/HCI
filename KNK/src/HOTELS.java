@@ -46,6 +46,7 @@ public class HOTELS extends JFrame {
 				try {
 					HOTELS frame = new HOTELS();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -57,6 +58,8 @@ public class HOTELS extends JFrame {
 	 * Create the frame.
 	 */
 	public HOTELS() {
+		
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(HOTELS.class.getResource("/Other/rcpb.png")));
 		setTitle("Hotel Managment System");
 		
