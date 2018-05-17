@@ -28,8 +28,8 @@ public class HOTELS extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_2;
 	private JPasswordField passwordField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -57,16 +57,16 @@ public class HOTELS extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JButton btnBack = new JButton("BACK");
-		btnBack.addActionListener(new ActionListener() {
+		JMenuItem mntmHome = new JMenuItem("Home");
+		mntmHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				dispose();
 				MainWindow window = new MainWindow();
 				window.frame.setVisible(true);
 			}
 		});
-		menuBar.add(btnBack);
+		menuBar.add(mntmHome);
+		
 		
 		JMenu mnLanguages = new JMenu("Languages");
 		menuBar.add(mnLanguages);
@@ -97,101 +97,42 @@ public class HOTELS extends JFrame {
 		tabbedPane.addTab("Register", null, panel, null);
 		panel.setLayout(null);
 		
-		JLabel lblEmri = new JLabel("Name : ");
+		JLabel lblEmri = new JLabel("Name: ");
 		lblEmri.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblEmri.setBounds(10, 63, 71, 14);
+		lblEmri.setBounds(203, 63, 49, 14);
 		panel.add(lblEmri);
 		
-		JLabel lblShteti = new JLabel("State : ");
-		lblShteti.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblShteti.setBounds(10, 88, 71, 14);
-		panel.add(lblShteti);
-		
-		JLabel lblQyteti = new JLabel("City : ");
-		lblQyteti.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblQyteti.setBounds(10, 113, 71, 20);
-		panel.add(lblQyteti);
-		
-		JLabel lblMadhesia = new JLabel("Size : ");
-		lblMadhesia.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMadhesia.setBounds(10, 144, 71, 14);
-		panel.add(lblMadhesia);
-		
 		textField = new JTextField();
-		textField.setBounds(89, 62, 86, 20);
+		textField.setBounds(249, 62, 242, 20);
 		panel.add(textField);
 		textField.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(89, 115, 86, 20);
-		panel.add(textField_2);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"...", "France", "Italy", "Greece"}));
-		comboBox.setBounds(89, 86, 86, 22);
-		panel.add(comboBox);
-		
-		JLabel roomslbl = new JLabel("Number of rooms : ");
-		roomslbl.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		roomslbl.setBounds(10, 230, 189, 14);
-		panel.add(roomslbl);
-		
-		JComboBox sizeCombo = new JComboBox();
-		sizeCombo.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				if(sizeCombo.getSelectedItem().toString()=="Small Hotel")
-				{
-					roomslbl.setText("Number of rooms : <100");
-				}
-				else if(sizeCombo.getSelectedItem().toString()=="Medium sized Hotel")
-				{
-					roomslbl.setText("Number of rooms : 100-300");
-				}
-				else if(sizeCombo.getSelectedItem().toString()=="Large Hotel")
-				{
-					roomslbl.setText("Number of rooms : >300");
-				}
-				else if(sizeCombo.getSelectedItem().toString()=="Mega Hotel")
-				{
-					roomslbl.setText("Number of rooms : >1000");
-				}
-				else
-				{
-					roomslbl.setText("Number of rooms : ");
-				}
-			}
-		});
-		sizeCombo.setModel(new DefaultComboBoxModel(new String[] {"...", "Small Hotel", "Medium sized Hotel", "Large Hotel", "Mega Hotel"}));
-		sizeCombo.setBounds(89, 143, 86, 20);
-		panel.add(sizeCombo);
 		
 		
 		
 		JLabel lblStars = new JLabel("Stars : ");
 		lblStars.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblStars.setBounds(295, 63, 71, 14);
+		lblStars.setBounds(203, 119, 49, 14);
 		panel.add(lblStars);
 		
 		JRadioButton radioButton = new JRadioButton("1");
-		radioButton.setBounds(342, 61, 38, 23);
+		radioButton.setBounds(249, 119, 49, 21);
 		panel.add(radioButton);
 		radioButton.setSelected(true);
 		
 		JRadioButton radioButton_1 = new JRadioButton("2");
-		radioButton_1.setBounds(383, 61, 38, 23);
+		radioButton_1.setBounds(300, 118, 49, 20);
 		panel.add(radioButton_1);
 		
 		JRadioButton radioButton_2 = new JRadioButton("3");
-		radioButton_2.setBounds(423, 61, 38, 23);
+		radioButton_2.setBounds(351, 118, 49, 21);
 		panel.add(radioButton_2);
 		
 		JRadioButton radioButton_3 = new JRadioButton("4");
-		radioButton_3.setBounds(463, 61, 38, 23);
+		radioButton_3.setBounds(402, 118, 49, 21);
 		panel.add(radioButton_3);
 		
 		JRadioButton radioButton_4 = new JRadioButton("5");
-		radioButton_4.setBounds(503, 61, 38, 23);
+		radioButton_4.setBounds(453, 117, 38, 23);
 		panel.add(radioButton_4);
 		group.add(radioButton);
 		group.add(radioButton_1);
@@ -199,38 +140,44 @@ public class HOTELS extends JFrame {
 		group.add(radioButton_3);
 		group.add(radioButton_4);
 		
-		JLabel lblServices = new JLabel("Services : ");
+		JLabel lblServices = new JLabel("Free Services:");
 		lblServices.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblServices.setBounds(10, 169, 71, 14);
+		lblServices.setBounds(161, 144, 91, 14);
 		panel.add(lblServices);
 		
-		JLabel lblFacilities = new JLabel("Facilities : ");
+		JLabel lblFacilities = new JLabel("Paid Services:");
 		lblFacilities.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFacilities.setBounds(10, 194, 71, 14);
+		lblFacilities.setBounds(161, 222, 91, 14);
 		panel.add(lblFacilities);
 		
 		JCheckBox chckbxRoomService = new JCheckBox("Room Service");
-		chckbxRoomService.setBounds(89, 167, 97, 23);
+		chckbxRoomService.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxRoomService.setBounds(249, 142, 108, 23);
 		panel.add(chckbxRoomService);
 		
 		JCheckBox chckbxWifi = new JCheckBox("WIFI");
-		chckbxWifi.setBounds(188, 167, 49, 23);
+		chckbxWifi.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxWifi.setBounds(249, 168, 64, 23);
 		panel.add(chckbxWifi);
 		
 		JCheckBox chckbxSpa = new JCheckBox("Spa");
-		chckbxSpa.setBounds(89, 192, 49, 23);
+		chckbxSpa.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxSpa.setBounds(442, 191, 49, 23);
 		panel.add(chckbxSpa);
 		
 		JCheckBox chckbxSwimmingPool = new JCheckBox("Swimming Pool");
-		chckbxSwimmingPool.setBounds(140, 192, 135, 23);
+		chckbxSwimmingPool.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxSwimmingPool.setBounds(249, 192, 114, 23);
 		panel.add(chckbxSwimmingPool);
 		
 		JCheckBox chckbxArcadeRoom = new JCheckBox("Arcade Room");
-		chckbxArcadeRoom.setBounds(277, 192, 103, 23);
+		chckbxArcadeRoom.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxArcadeRoom.setBounds(316, 168, 103, 23);
 		panel.add(chckbxArcadeRoom);
 		
 		JCheckBox chckbxConferenceRoom = new JCheckBox("Conference Room");
-		chckbxConferenceRoom.setBounds(385, 192, 133, 23);
+		chckbxConferenceRoom.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxConferenceRoom.setBounds(368, 142, 123, 23);
 		panel.add(chckbxConferenceRoom);
 		
 		JLabel lblNewLabel = new JLabel("Register Your Hotel");
@@ -238,14 +185,84 @@ public class HOTELS extends JFrame {
 		lblNewLabel.setBounds(220, 11, 245, 36);
 		panel.add(lblNewLabel);
 		
-		JLabel lblPleaseInsertA = new JLabel("Please insert a password for later updating: ");
+		JLabel lblPleaseInsertA = new JLabel("Password:");
 		lblPleaseInsertA.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPleaseInsertA.setBounds(10, 353, 274, 19);
+		lblPleaseInsertA.setBounds(181, 296, 71, 19);
 		panel.add(lblPleaseInsertA);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(295, 352, 85, 20);
+		passwordField.setBounds(249, 297, 242, 20);
 		panel.add(passwordField);
+		
+		JLabel lblNewLabel_1 = new JLabel("Location:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(188, 94, 64, 14);
+		panel.add(lblNewLabel_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(249, 93, 242, 20);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Sauna");
+		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxNewCheckBox.setBounds(427, 168, 64, 23);
+		panel.add(chckbxNewCheckBox);
+		
+		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Alcohol");
+		chckbxNewCheckBox_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxNewCheckBox_1.setBounds(365, 191, 71, 23);
+		panel.add(chckbxNewCheckBox_1);
+		
+		JCheckBox checkBox = new JCheckBox("Room Service");
+		checkBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		checkBox.setBounds(249, 219, 108, 23);
+		panel.add(checkBox);
+		
+		JCheckBox checkBox_1 = new JCheckBox("Conference Room");
+		checkBox_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		checkBox_1.setBounds(368, 219, 123, 23);
+		panel.add(checkBox_1);
+		
+		JCheckBox checkBox_2 = new JCheckBox("WIFI");
+		checkBox_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		checkBox_2.setBounds(249, 245, 64, 23);
+		panel.add(checkBox_2);
+		
+		JCheckBox checkBox_3 = new JCheckBox("Arcade Room");
+		checkBox_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		checkBox_3.setBounds(316, 245, 103, 23);
+		panel.add(checkBox_3);
+		
+		JCheckBox checkBox_4 = new JCheckBox("Sauna");
+		checkBox_4.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		checkBox_4.setBounds(427, 245, 64, 23);
+		panel.add(checkBox_4);
+		
+		JCheckBox checkBox_5 = new JCheckBox("Swimming Pool");
+		checkBox_5.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		checkBox_5.setBounds(249, 269, 114, 23);
+		panel.add(checkBox_5);
+		
+		JCheckBox checkBox_6 = new JCheckBox("Alcohol");
+		checkBox_6.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		checkBox_6.setBounds(365, 268, 71, 23);
+		panel.add(checkBox_6);
+		
+		JCheckBox checkBox_7 = new JCheckBox("Spa");
+		checkBox_7.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		checkBox_7.setBounds(442, 268, 49, 23);
+		panel.add(checkBox_7);
+		
+		JButton btnNewButton = new JButton("Next");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton.setBounds(388, 328, 103, 23);
+		panel.add(btnNewButton);
 		
 		
 		
