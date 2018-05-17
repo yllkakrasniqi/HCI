@@ -321,6 +321,8 @@ public class HOTELS extends JFrame {
 		btnBack_1.setBounds(417, 314, 89, 23);
 		registerPanel_2.add(btnBack_1);
 		
+		
+		//Pytesori per Dhomat Ku per secilin lloj kerkohet nr i dhomave cmimi dhe nje foto
 		JLabel lblNewLabel_2 = new JLabel("Rooms");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblNewLabel_2.setBounds(291, 11, 72, 23);
