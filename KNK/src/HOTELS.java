@@ -321,14 +321,223 @@ public class HOTELS extends JFrame {
 		btnBack_1.setBounds(417, 314, 89, 23);
 		registerPanel_2.add(btnBack_1);
 		
+		JLabel lblNewLabel_2 = new JLabel("Rooms");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_2.setBounds(291, 11, 72, 23);
+		registerPanel_2.add(lblNewLabel_2);
+		
+		JLabel lblSingleRoom = new JLabel("SingleRoom:");
+		lblSingleRoom.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblSingleRoom.setBounds(26, 39, 89, 23);
+		registerPanel_2.add(lblSingleRoom);
+		
+		txtNrSingleRooms = new JTextField();
+		txtNrSingleRooms.setBounds(175, 68, 64, 23);
+		registerPanel_2.add(txtNrSingleRooms);
+		txtNrSingleRooms.setColumns(10);
+		
+		JLabel lblNrSingleRooms = new JLabel("Number of Rooms:");
+		lblNrSingleRooms.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNrSingleRooms.setBounds(69, 71, 108, 14);
+		registerPanel_2.add(lblNrSingleRooms);
+		
+		JLabel lblSinglePrice = new JLabel("Price:");
+		lblSinglePrice.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblSinglePrice.setBounds(249, 71, 46, 14);
+		registerPanel_2.add(lblSinglePrice);
+		
+		txtSinglePrice = new JTextField();
+		txtSinglePrice.setBounds(290, 68, 86, 23);
+		registerPanel_2.add(txtSinglePrice);
+		txtSinglePrice.setColumns(10);
+		
+		JLabel lblDoubleRoom = new JLabel("DoubleRoom:");
+		lblDoubleRoom.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDoubleRoom.setBounds(26, 156, 89, 23);
+		registerPanel_2.add(lblDoubleRoom);
+		
+		JLabel lblNrDoubleRooms = new JLabel("Number of Rooms:");
+		lblNrDoubleRooms.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNrDoubleRooms.setBounds(69, 188, 108, 14);
+		registerPanel_2.add(lblNrDoubleRooms);
+		
+		txtNrDoubleRooms = new JTextField();
+		txtNrDoubleRooms.setColumns(10);
+		txtNrDoubleRooms.setBounds(175, 185, 64, 23);
+		registerPanel_2.add(txtNrDoubleRooms);
+		
+		JLabel lblDoublePrice = new JLabel("Price:");
+		lblDoublePrice.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblDoublePrice.setBounds(249, 188, 46, 14);
+		registerPanel_2.add(lblDoublePrice);
+		
+		txtDoublePrice = new JTextField();
+		txtDoublePrice.setColumns(10);
+		txtDoublePrice.setBounds(291, 185, 86, 23);
+		registerPanel_2.add(txtDoublePrice);
+		
+		JLabel lblDoubleDoubleRoom = new JLabel("DoubleDoubleRoom:");
+		lblDoubleDoubleRoom.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDoubleDoubleRoom.setBounds(26, 390, 134, 23);
+		registerPanel_2.add(lblDoubleDoubleRoom);
+		
+		JLabel lblNrDoubleDoubleRooms = new JLabel("Number of Rooms:");
+		lblNrDoubleDoubleRooms.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNrDoubleDoubleRooms.setBounds(69, 422, 108, 14);
+		registerPanel_2.add(lblNrDoubleDoubleRooms);
+		
+		txtDoubleDoubleRooms = new JTextField();
+		txtDoubleDoubleRooms.setColumns(10);
+		txtDoubleDoubleRooms.setBounds(175, 419, 64, 23);
+		registerPanel_2.add(txtDoubleDoubleRooms);
+		
+		JLabel lblDoubleDoublePrice = new JLabel("Price:");
+		lblDoubleDoublePrice.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblDoubleDoublePrice.setBounds(249, 422, 46, 14);
+		registerPanel_2.add(lblDoubleDoublePrice);
+		
+		txtDoubleDoublePrice = new JTextField();
+		txtDoubleDoublePrice.setColumns(10);
+		txtDoubleDoublePrice.setBounds(290, 419, 86, 23);
+		registerPanel_2.add(txtDoubleDoublePrice);
+		
+		JLabel lblTwinRoom = new JLabel("TwinRoom:");
+		lblTwinRoom.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTwinRoom.setBounds(26, 273, 77, 23);
+		registerPanel_2.add(lblTwinRoom);
+		
+		JLabel lblNrTwinRoom = new JLabel("Number of Rooms:");
+		lblNrTwinRoom.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNrTwinRoom.setBounds(69, 305, 108, 14);
+		registerPanel_2.add(lblNrTwinRoom);
+		
+		txtNrTwinRoom = new JTextField();
+		txtNrTwinRoom.setColumns(10);
+		txtNrTwinRoom.setBounds(175, 302, 64, 23);
+		registerPanel_2.add(txtNrTwinRoom);
+		
+		JLabel lblTwinPrice = new JLabel("Price:");
+		lblTwinPrice.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblTwinPrice.setBounds(249, 305, 46, 14);
+		registerPanel_2.add(lblTwinPrice);
+		
+		txtTwinPrice = new JTextField();
+		txtTwinPrice.setColumns(10);
+		txtTwinPrice.setBounds(290, 302, 86, 23);
+		registerPanel_2.add(txtTwinPrice);
+		
+		JLabel lblLanairoom = new JLabel("LanaiRoom:");
+		lblLanairoom.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblLanairoom.setBounds(26, 507, 134, 23);
+		registerPanel_2.add(lblLanairoom);
+		
+		JLabel lblNrLanaiRooms = new JLabel("Number of Rooms:");
+		lblNrLanaiRooms.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNrLanaiRooms.setBounds(69, 539, 108, 14);
+		registerPanel_2.add(lblNrLanaiRooms);
+		
+		txtNrLanaiRooms = new JTextField();
+		txtNrLanaiRooms.setColumns(10);
+		txtNrLanaiRooms.setBounds(175, 536, 64, 23);
+		registerPanel_2.add(txtNrLanaiRooms);
+		
+		JLabel lblLanaiPrice = new JLabel("Price:");
+		lblLanaiPrice.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblLanaiPrice.setBounds(249, 539, 46, 14);
+		registerPanel_2.add(lblLanaiPrice);
+		
+		txtLanaiPrice = new JTextField();
+		txtLanaiPrice.setColumns(10);
+		txtLanaiPrice.setBounds(291, 536, 86, 23);
+		registerPanel_2.add(txtLanaiPrice);
+		
+		JLabel lblSuiteRoom = new JLabel("SuiteRoom:");
+		lblSuiteRoom.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblSuiteRoom.setBounds(26, 624, 134, 23);
+		registerPanel_2.add(lblSuiteRoom);
+		
+		JLabel lblNrSuiteRooms = new JLabel("Number of Rooms:");
+		lblNrSuiteRooms.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNrSuiteRooms.setBounds(69, 656, 108, 14);
+		registerPanel_2.add(lblNrSuiteRooms);
+		
+		txtNrSuiteRooms = new JTextField();
+		txtNrSuiteRooms.setColumns(10);
+		txtNrSuiteRooms.setBounds(175, 653, 64, 23);
+		registerPanel_2.add(txtNrSuiteRooms);
+		
+		JLabel lblSuitePrice = new JLabel("Price:");
+		lblSuitePrice.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblSuitePrice.setBounds(249, 656, 46, 14);
+		registerPanel_2.add(lblSuitePrice);
+		
+		txtSuitePrice = new JTextField();
+		txtSuitePrice.setColumns(10);
+		txtSuitePrice.setBounds(290, 653, 86, 23);
+		registerPanel_2.add(txtSuitePrice);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(696, 142, -665, 14);
+		registerPanel_2.add(separator);
+		
+		JButton btnSingle = new JButton("Upload Image");
+		btnSingle.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnSingle.setBounds(386, 68, 108, 23);
+		registerPanel_2.add(btnSingle);
+		
+		JButton btnDouble = new JButton("Upload Image");
+		btnDouble.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnDouble.setBounds(386, 185, 108, 23);
+		registerPanel_2.add(btnDouble);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(507, 156, 202, 111);
+		registerPanel_2.add(label);
+		
+		JButton button = new JButton("Upload Image");
+		button.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		button.setBounds(386, 302, 108, 23);
+		registerPanel_2.add(button);
+		
+		JButton button_1 = new JButton("Upload Image");
+		button_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		button_1.setBounds(386, 419, 108, 23);
+		registerPanel_2.add(button_1);
+		
+		JButton button_2 = new JButton("Upload Image");
+		button_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		button_2.setBounds(386, 536, 108, 23);
+		registerPanel_2.add(button_2);
+		
+		JButton button_3 = new JButton("Upload Image");
+		button_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		button_3.setBounds(386, 653, 108, 23);
+		registerPanel_2.add(button_3);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setBounds(507, 273, 202, 111);
+		registerPanel_2.add(label_1);
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setBounds(507, 390, 202, 111);
+		registerPanel_2.add(label_2);
+		
+		JLabel label_3 = new JLabel("");
+		label_3.setBounds(507, 507, 202, 111);
+		registerPanel_2.add(label_3);
+		
+		JLabel label_4 = new JLabel("");
+		label_4.setBounds(507, 624, 202, 111);
+		registerPanel_2.add(label_4);
+		
+		JLabel label_5 = new JLabel("");
+		label_5.setBounds(507, 39, 202, 111);
+		registerPanel_2.add(label_5);
+		
 		
 		//krijimi i tabbedPane Update
 		JPanel updatePanel = new JPanel();
 		tabbedPane.addTab("Update", null, updatePanel, null);
-		
-		
-		
-		
 		
 	}
 }
