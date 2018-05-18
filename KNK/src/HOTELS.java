@@ -3,25 +3,32 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JButton;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
 import java.awt.event.ItemListener;
+import java.io.File;
 import java.awt.event.ItemEvent;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
@@ -36,6 +43,18 @@ public class HOTELS extends JFrame {
 	private JTextField textField_2;
 	private JPasswordField passwordField;
 	private JTextField textField_1;
+	private JTextField txtNrSingleRooms;
+	private JTextField txtSinglePrice;
+	private JTextField txtNrDoubleRooms;
+	private JTextField txtDoublePrice;
+	private JTextField txtDoubleDoubleRooms;
+	private JTextField txtDoubleDoublePrice;
+	private JTextField txtNrTwinRoom;
+	private JTextField txtTwinPrice;
+	private JTextField txtNrLanaiRooms;
+	private JTextField txtLanaiPrice;
+	private JTextField txtNrSuiteRooms;
+	private JTextField txtSuitePrice;
 
 	/**
 	 * Launch the application.
@@ -318,7 +337,7 @@ public class HOTELS extends JFrame {
 				registerPanel.revalidate();
 			}
 		});
-		btnBack_1.setBounds(417, 314, 89, 23);
+		btnBack_1.setBounds(361, 343, 108, 23);
 		registerPanel_2.add(btnBack_1);
 		
 		
@@ -334,7 +353,7 @@ public class HOTELS extends JFrame {
 		registerPanel_2.add(lblSingleRoom);
 		
 		txtNrSingleRooms = new JTextField();
-		txtNrSingleRooms.setBounds(175, 68, 64, 23);
+		txtNrSingleRooms.setBounds(175, 68, 51, 23);
 		registerPanel_2.add(txtNrSingleRooms);
 		txtNrSingleRooms.setColumns(10);
 		
@@ -345,11 +364,11 @@ public class HOTELS extends JFrame {
 		
 		JLabel lblSinglePrice = new JLabel("Price:");
 		lblSinglePrice.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblSinglePrice.setBounds(249, 71, 46, 14);
+		lblSinglePrice.setBounds(236, 71, 46, 14);
 		registerPanel_2.add(lblSinglePrice);
 		
 		txtSinglePrice = new JTextField();
-		txtSinglePrice.setBounds(290, 68, 86, 23);
+		txtSinglePrice.setBounds(271, 68, 72, 23);
 		registerPanel_2.add(txtSinglePrice);
 		txtSinglePrice.setColumns(10);
 		
@@ -365,17 +384,17 @@ public class HOTELS extends JFrame {
 		
 		txtNrDoubleRooms = new JTextField();
 		txtNrDoubleRooms.setColumns(10);
-		txtNrDoubleRooms.setBounds(175, 185, 64, 23);
+		txtNrDoubleRooms.setBounds(175, 185, 51, 23);
 		registerPanel_2.add(txtNrDoubleRooms);
 		
 		JLabel lblDoublePrice = new JLabel("Price:");
 		lblDoublePrice.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblDoublePrice.setBounds(249, 188, 46, 14);
+		lblDoublePrice.setBounds(236, 188, 46, 14);
 		registerPanel_2.add(lblDoublePrice);
 		
 		txtDoublePrice = new JTextField();
 		txtDoublePrice.setColumns(10);
-		txtDoublePrice.setBounds(291, 185, 86, 23);
+		txtDoublePrice.setBounds(271, 185, 72, 23);
 		registerPanel_2.add(txtDoublePrice);
 		
 		JLabel lblDoubleDoubleRoom = new JLabel("DoubleDoubleRoom:");
@@ -415,17 +434,17 @@ public class HOTELS extends JFrame {
 		
 		txtNrTwinRoom = new JTextField();
 		txtNrTwinRoom.setColumns(10);
-		txtNrTwinRoom.setBounds(175, 302, 64, 23);
+		txtNrTwinRoom.setBounds(175, 302, 51, 23);
 		registerPanel_2.add(txtNrTwinRoom);
 		
 		JLabel lblTwinPrice = new JLabel("Price:");
 		lblTwinPrice.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblTwinPrice.setBounds(249, 305, 46, 14);
+		lblTwinPrice.setBounds(236, 305, 46, 14);
 		registerPanel_2.add(lblTwinPrice);
 		
 		txtTwinPrice = new JTextField();
 		txtTwinPrice.setColumns(10);
-		txtTwinPrice.setBounds(290, 302, 86, 23);
+		txtTwinPrice.setBounds(271, 302, 72, 23);
 		registerPanel_2.add(txtTwinPrice);
 		
 		JLabel lblLanairoom = new JLabel("LanaiRoom:");
@@ -482,24 +501,94 @@ public class HOTELS extends JFrame {
 		separator.setBounds(696, 142, -665, 14);
 		registerPanel_2.add(separator);
 		
+		//Krijimi i border per labelat e imazheve
+		Border border=BorderFactory.createLineBorder(Color.BLACK, 1);
+		
+		JLabel lblDoubleImage = new JLabel("");
+		lblDoubleImage.setBounds(504, 142, 202, 111);
+		registerPanel_2.add(lblDoubleImage);
+		lblDoubleImage.setBorder(border);
+		
+		JLabel lblSingleImage = new JLabel("");
+		lblSingleImage.setBounds(504, 24, 202, 111);
+		registerPanel_2.add(lblSingleImage);
+		lblSingleImage.setBorder(border);
+		
+		JLabel lblTwinImage = new JLabel("");
+		lblTwinImage.setBounds(504, 259, 202, 111);
+		registerPanel_2.add(lblTwinImage);
+		lblTwinImage.setBorder(border);
+		
+		//Butoni per image upload te fotove
 		JButton btnSingle = new JButton("Upload Image");
+		btnSingle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//Marrja e file nga sistemi
+				JFileChooser chooser=new JFileChooser();
+				chooser.showOpenDialog(null);
+				File f=chooser.getSelectedFile();
+				String filename=f.getAbsolutePath();
+				
+				//Manipulimi per vendosjen e fotos ne label perkatese
+				ImageIcon icon=new ImageIcon(filename);
+				Image img=icon.getImage();
+				Image newImg=img.getScaledInstance(lblSingleImage.getWidth(),lblSingleImage.getHeight(),Image.SCALE_SMOOTH);
+				ImageIcon newIcon=new ImageIcon(newImg);
+				lblSingleImage.setIcon(newIcon);
+				
+			}
+		});
 		btnSingle.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnSingle.setBounds(386, 68, 108, 23);
+		btnSingle.setBounds(353, 67, 116, 23);
 		registerPanel_2.add(btnSingle);
 		
+		
+		//Butoni per image upload te fotove
 		JButton btnDouble = new JButton("Upload Image");
+		btnDouble.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JFileChooser chooser=new JFileChooser();
+				chooser.showOpenDialog(null);
+				File f=chooser.getSelectedFile();
+				String filename=f.getAbsolutePath();
+				
+				ImageIcon icon=new ImageIcon(filename);
+				Image img=icon.getImage();
+				Image newImg=img.getScaledInstance(lblDoubleImage.getWidth(),lblDoubleImage.getHeight(), Image.SCALE_SMOOTH);
+				ImageIcon newIcon=new ImageIcon(newImg);
+				lblDoubleImage.setIcon(newIcon);
+				
+				
+			}
+		});
 		btnDouble.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnDouble.setBounds(386, 185, 108, 23);
+		btnDouble.setBounds(353, 184, 116, 23);
 		registerPanel_2.add(btnDouble);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(507, 156, 202, 111);
-		registerPanel_2.add(label);
 		
-		JButton button = new JButton("Upload Image");
-		button.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		button.setBounds(386, 302, 108, 23);
-		registerPanel_2.add(button);
+		//Butoni per image upload te fotove
+		JButton btnTwin = new JButton("Upload Image");
+		btnTwin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JFileChooser chooser=new JFileChooser();
+				chooser.showOpenDialog(null);
+				File f=chooser.getSelectedFile();
+				String filename=f.getAbsolutePath();
+				
+				ImageIcon icon=new ImageIcon(filename);
+				Image img=icon.getImage();
+				Image newImg=img.getScaledInstance(lblTwinImage.getWidth(),lblTwinImage.getHeight(), Image.SCALE_SMOOTH);
+				ImageIcon newIcon=new ImageIcon(newImg);
+				lblTwinImage.setIcon(newIcon);
+			}
+		});
+		btnTwin.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnTwin.setBounds(353, 301, 116, 23);
+		registerPanel_2.add(btnTwin);
+		
 		
 		JButton button_1 = new JButton("Upload Image");
 		button_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -516,9 +605,6 @@ public class HOTELS extends JFrame {
 		button_3.setBounds(386, 653, 108, 23);
 		registerPanel_2.add(button_3);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setBounds(507, 273, 202, 111);
-		registerPanel_2.add(label_1);
 		
 		JLabel label_2 = new JLabel("");
 		label_2.setBounds(507, 390, 202, 111);
@@ -532,9 +618,38 @@ public class HOTELS extends JFrame {
 		label_4.setBounds(507, 624, 202, 111);
 		registerPanel_2.add(label_4);
 		
-		JLabel label_5 = new JLabel("");
-		label_5.setBounds(507, 39, 202, 111);
-		registerPanel_2.add(label_5);
+		//Butoni per fshirje te fotos nga labela perkatese
+		JButton btnClearSingle = new JButton("Clear");
+		btnClearSingle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lblSingleImage.setIcon(null);
+			}
+		});
+		btnClearSingle.setBounds(406, 41, 64, 23);
+		registerPanel_2.add(btnClearSingle);
+		
+		//Butoni per fshirje te fotos nga labela perkatese
+		JButton btnClearDouble = new JButton("Clear");
+		btnClearDouble.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				lblDoubleImage.setIcon(null);
+			}
+		});
+		btnClearDouble.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnClearDouble.setBounds(406, 158, 64, 23);
+		registerPanel_2.add(btnClearDouble);
+		
+		//Butoni per fshirje te fotos nga labela perkatese
+		JButton btnClearTwin = new JButton("Clear");
+		btnClearTwin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				lblTwinImage.setIcon(null);
+			}
+		});
+		btnClearTwin.setBounds(406, 275, 64, 23);
+		registerPanel_2.add(btnClearTwin);
 		
 		
 		//krijimi i tabbedPane Update
