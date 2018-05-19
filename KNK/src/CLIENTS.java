@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,7 +28,6 @@ public class CLIENTS extends JFrame {
 				try {
 					CLIENTS frame = new CLIENTS();
 					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,10 +35,16 @@ public class CLIENTS extends JFrame {
 		});
 	}
 
+	Connection connection=null;
+	
 	/**
 	 * Create the frame.
 	 */
 	public CLIENTS() {
+		
+		//thirrja e klases e cila krijon lidhjen me databazen e MySQL
+		connection=dbConnector.dbConnection();
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CLIENTS.class.getResource("/Other/rcpb.png")));
 		setTitle("Hotel Managment System");
 		setResizable(false);
@@ -60,7 +66,6 @@ public class CLIENTS extends JFrame {
 				dispose();
 				MainWindow window = new MainWindow();
 				window.frmHotelManagmentSystem.setVisible(true);
-				window.frmHotelManagmentSystem.setLocationRelativeTo(null);
 			}
 		});
 		menuBar.add(btnBack);

@@ -29,20 +29,28 @@ import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
 import java.awt.event.ItemListener;
 import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.ItemEvent;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JToolBar;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class HOTELS extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtName;
 	private JTextField textField_2;
 	private JPasswordField passwordField;
-	private JTextField textField_1;
+	private JTextField txtLocation;
 	private JTextField txtNrSingleRooms;
 	private JTextField txtSinglePrice;
 	private JTextField txtNrDoubleRooms;
@@ -73,16 +81,21 @@ public class HOTELS extends JFrame {
 		});
 	}
 
+	
+	Connection connection=null;
+	
 	/**
 	 * Create the frame.
 	 */
 	public HOTELS() {
 		
+		//thirrja e klases e cila krijon lidhjen me databazen e MySQL
+		connection=dbConnector.dbConnection();
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(HOTELS.class.getResource("/Other/rcpb.png")));
 		setTitle("Hotel Managment System");
-		
 		setResizable(false);
+		
 		
 		
 		
@@ -101,6 +114,7 @@ public class HOTELS extends JFrame {
 				
 				dispose();
 				MainWindow window = new MainWindow();
+				
 				window.frmHotelManagmentSystem.setVisible(true);
 			}
 		});
@@ -111,6 +125,7 @@ public class HOTELS extends JFrame {
 		
 		JMenuItem mntmAlbanian = new JMenuItem("Albanian");
 		mnLanguages.add(mntmAlbanian);
+		
 		
 		JMenuItem mntmEnglish = new JMenuItem("English");
 		mnLanguages.add(mntmEnglish);
@@ -146,8 +161,7 @@ public class HOTELS extends JFrame {
 		JPanel registerPanel_2 = new JPanel();
 		registerPanel.add(registerPanel_2, "name_183868424313582");
 		registerPanel_2.setLayout(null);
-		
-		
+	
 		
 		
 		
@@ -157,10 +171,12 @@ public class HOTELS extends JFrame {
 		lblEmri.setBounds(203, 63, 49, 14);
 		registerPanel_1.add(lblEmri);
 		
-		textField = new JTextField();
-		textField.setBounds(249, 62, 242, 20);
-		registerPanel_1.add(textField);
-		textField.setColumns(10);
+		
+		
+		txtName = new JTextField();
+		txtName.setBounds(249, 62, 242, 20);
+		registerPanel_1.add(txtName);
+		txtName.setColumns(10);
 		
 		
 		//grupimi i radiobutonave per stars
@@ -256,10 +272,10 @@ public class HOTELS extends JFrame {
 		lblNewLabel_1.setBounds(188, 94, 64, 14);
 		registerPanel_1.add(lblNewLabel_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(249, 93, 242, 20);
-		registerPanel_1.add(textField_1);
-		textField_1.setColumns(10);
+		txtLocation = new JTextField();
+		txtLocation.setBounds(249, 93, 242, 20);
+		registerPanel_1.add(txtLocation);
+		txtLocation.setColumns(10);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Sauna");
 		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -324,7 +340,7 @@ public class HOTELS extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(388, 328, 103, 23);
+		btnNewButton.setBounds(10, 11, 103, 23);
 		registerPanel_1.add(btnNewButton);
 		
 		//Butoni back per panelin register
@@ -337,7 +353,7 @@ public class HOTELS extends JFrame {
 				registerPanel.revalidate();
 			}
 		});
-		btnBack_1.setBounds(361, 343, 108, 23);
+		btnBack_1.setBounds(7, 11, 108, 23);
 		registerPanel_2.add(btnBack_1);
 		
 		
@@ -650,6 +666,42 @@ public class HOTELS extends JFrame {
 		});
 		btnClearTwin.setBounds(406, 275, 64, 23);
 		registerPanel_2.add(btnClearTwin);
+		
+		//butoni per regjistrimin e hoteleve
+		JButton btnRegister = new JButton("Register");
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try
+				{
+				
+				//Statement per ruajtjen e queryt
+				PreparedStatement sst=connection.prepareStatement("INSERT INTO hotels (Name,Location,Password) VALUES (?,?,?)");
+				sst.setString(1, txtName.getText());
+				sst.setString(2, txtLocation.getText());
+				sst.setString(3, passwordField.getText());
+				sst.execute();
+				
+				JOptionPane.showMessageDialog(null,"Jeni regjistruar me sukses");
+				
+				
+				
+				sst.close();
+				
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		btnRegister.setBounds(363, 335, 89, 23);
+		registerPanel_2.add(btnRegister);
+		
+		
+		
+		
 		
 		
 		//krijimi i tabbedPane Update
