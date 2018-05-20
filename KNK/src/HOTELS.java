@@ -29,6 +29,8 @@ import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
 import java.awt.event.ItemListener;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,6 +66,30 @@ public class HOTELS extends JFrame {
 	private JTextField txtNrSuiteRooms;
 	private JTextField txtSuitePrice;
 
+	int stars=0;
+	String RoomService="";
+	String ConferenceRoom="";
+	String WIFI="";
+	String ArcadeRoom="";
+	String Sauna="";
+	String Pool="";
+	String Alcohol="";
+	String Spa="";
+	
+	String pRoomService="";
+	String pConferenceRoom="";
+	String pWIFI="";
+	String pArcadeRoom="";
+	String pSauna="";
+	String pPool="";
+	String pAlcohol="";
+	String pSpa="";
+	
+	String singleRoomPath="";
+	String doubleRoomPath="";
+	String twinRoomPath="";
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -88,6 +114,9 @@ public class HOTELS extends JFrame {
 	 * Create the frame.
 	 */
 	public HOTELS() {
+		
+		
+		
 		
 		//thirrja e klases e cila krijon lidhjen me databazen e MySQL
 		connection=dbConnector.dbConnection();
@@ -188,23 +217,48 @@ public class HOTELS extends JFrame {
 		registerPanel_1.add(lblStars);
 		
 		JRadioButton radioButton = new JRadioButton("1");
+		radioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				stars=1;
+			}
+		});
 		radioButton.setBounds(249, 119, 49, 21);
 		registerPanel_1.add(radioButton);
 		radioButton.setSelected(true);
 		
 		JRadioButton radioButton_1 = new JRadioButton("2");
+		radioButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				stars=2;
+			}
+		});
 		radioButton_1.setBounds(300, 118, 49, 20);
 		registerPanel_1.add(radioButton_1);
 		
 		JRadioButton radioButton_2 = new JRadioButton("3");
+		radioButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				stars=3;
+			}
+		});
 		radioButton_2.setBounds(351, 118, 49, 21);
 		registerPanel_1.add(radioButton_2);
 		
 		JRadioButton radioButton_3 = new JRadioButton("4");
+		radioButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				stars=4;
+			}
+		});
 		radioButton_3.setBounds(402, 118, 49, 21);
 		registerPanel_1.add(radioButton_3);
 		
 		JRadioButton radioButton_4 = new JRadioButton("5");
+		radioButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				stars=5;
+			}
+		});
 		radioButton_4.setBounds(453, 117, 38, 23);
 		registerPanel_1.add(radioButton_4);
 		group.add(radioButton);
@@ -224,31 +278,79 @@ public class HOTELS extends JFrame {
 		registerPanel_1.add(lblFacilities);
 		
 		JCheckBox chckbxRoomService = new JCheckBox("Room Service");
+		chckbxRoomService.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!RoomService.isEmpty())
+					RoomService="";
+				else
+					RoomService="Yes";
+			}
+		});
 		chckbxRoomService.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		chckbxRoomService.setBounds(249, 142, 108, 23);
 		registerPanel_1.add(chckbxRoomService);
 		
 		JCheckBox chckbxWifi = new JCheckBox("WIFI");
+		chckbxWifi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!WIFI.isEmpty())
+					WIFI="";
+				else
+					WIFI="Yes";
+			}
+		});
 		chckbxWifi.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		chckbxWifi.setBounds(249, 168, 64, 23);
 		registerPanel_1.add(chckbxWifi);
 		
 		JCheckBox chckbxSpa = new JCheckBox("Spa");
+		chckbxSpa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!Spa.isEmpty())
+					Spa="";
+				else
+					Spa="Yes";
+			}
+		});
 		chckbxSpa.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		chckbxSpa.setBounds(442, 191, 49, 23);
 		registerPanel_1.add(chckbxSpa);
 		
 		JCheckBox chckbxSwimmingPool = new JCheckBox("Swimming Pool");
+		chckbxSwimmingPool.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!Pool.isEmpty())
+					Pool="";
+				else
+					Pool="Yes";
+			}
+		});
 		chckbxSwimmingPool.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		chckbxSwimmingPool.setBounds(249, 192, 114, 23);
 		registerPanel_1.add(chckbxSwimmingPool);
 		
 		JCheckBox chckbxArcadeRoom = new JCheckBox("Arcade Room");
+		chckbxArcadeRoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!ArcadeRoom.isEmpty())
+					ArcadeRoom="";
+				else
+					ArcadeRoom="Yes";
+			}
+		});
 		chckbxArcadeRoom.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		chckbxArcadeRoom.setBounds(316, 168, 103, 23);
 		registerPanel_1.add(chckbxArcadeRoom);
 		
 		JCheckBox chckbxConferenceRoom = new JCheckBox("Conference Room");
+		chckbxConferenceRoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!ConferenceRoom.isEmpty())
+					ConferenceRoom="";
+				else
+					ConferenceRoom="Yes";
+			}
+		});
 		chckbxConferenceRoom.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		chckbxConferenceRoom.setBounds(368, 142, 123, 23);
 		registerPanel_1.add(chckbxConferenceRoom);
@@ -278,51 +380,132 @@ public class HOTELS extends JFrame {
 		txtLocation.setColumns(10);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Sauna");
+		chckbxNewCheckBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!Sauna.isEmpty())
+					Sauna="";
+				else
+					Sauna="Yes";
+			}
+		});
 		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		chckbxNewCheckBox.setBounds(427, 168, 64, 23);
 		registerPanel_1.add(chckbxNewCheckBox);
 		
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Alcohol");
+		chckbxNewCheckBox_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!Alcohol.isEmpty())
+					Alcohol="";
+				else
+					Alcohol="Yes";
+			}
+		});
 		chckbxNewCheckBox_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		chckbxNewCheckBox_1.setBounds(365, 191, 71, 23);
 		registerPanel_1.add(chckbxNewCheckBox_1);
 		
 		JCheckBox checkBox = new JCheckBox("Room Service");
+		checkBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!pRoomService.isEmpty())
+					pRoomService="";
+				else
+					pRoomService="Yes";
+			}
+		});
 		checkBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		checkBox.setBounds(249, 219, 108, 23);
 		registerPanel_1.add(checkBox);
 		
 		JCheckBox checkBox_1 = new JCheckBox("Conference Room");
+		checkBox_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!pConferenceRoom.isEmpty())
+					pConferenceRoom="";
+				else
+					pConferenceRoom="Yes";
+			}
+		});
 		checkBox_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		checkBox_1.setBounds(368, 219, 123, 23);
 		registerPanel_1.add(checkBox_1);
 		
 		JCheckBox checkBox_2 = new JCheckBox("WIFI");
+		checkBox_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!pWIFI.isEmpty())
+					pWIFI="";
+				else
+					pWIFI="Yes";
+
+			}
+		});
 		checkBox_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		checkBox_2.setBounds(249, 245, 64, 23);
 		registerPanel_1.add(checkBox_2);
 		
 		JCheckBox checkBox_3 = new JCheckBox("Arcade Room");
+		checkBox_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!pArcadeRoom.isEmpty())
+					pArcadeRoom="";
+				else
+					pArcadeRoom="Yes";
+			}
+		});
 		checkBox_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		checkBox_3.setBounds(316, 245, 103, 23);
 		registerPanel_1.add(checkBox_3);
 		
 		JCheckBox checkBox_4 = new JCheckBox("Sauna");
+		checkBox_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!pSauna.isEmpty())
+					pSauna="";
+				else
+					pSauna="Yes";
+			}
+		});
 		checkBox_4.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		checkBox_4.setBounds(427, 245, 64, 23);
 		registerPanel_1.add(checkBox_4);
 		
 		JCheckBox checkBox_5 = new JCheckBox("Swimming Pool");
+		checkBox_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!pPool.isEmpty())
+					pPool="";
+				else
+					pPool="Yes";
+			}
+		});
 		checkBox_5.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		checkBox_5.setBounds(249, 269, 114, 23);
 		registerPanel_1.add(checkBox_5);
 		
 		JCheckBox checkBox_6 = new JCheckBox("Alcohol");
+		checkBox_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!pAlcohol.isEmpty())
+					pAlcohol="";
+				else
+					pAlcohol="Yes";
+			}
+		});
 		checkBox_6.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		checkBox_6.setBounds(365, 268, 71, 23);
 		registerPanel_1.add(checkBox_6);
 		
 		JCheckBox checkBox_7 = new JCheckBox("Spa");
+		checkBox_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!pSpa.isEmpty())
+					pSpa="";
+				else
+					pSpa="Yes";
+			}
+		});
 		checkBox_7.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		checkBox_7.setBounds(442, 268, 49, 23);
 		registerPanel_1.add(checkBox_7);
@@ -545,6 +728,8 @@ public class HOTELS extends JFrame {
 				chooser.showOpenDialog(null);
 				File f=chooser.getSelectedFile();
 				String filename=f.getAbsolutePath();
+			
+				singleRoomPath=filename;//ruajme path te imazhit per ruajte ne databaze
 				
 				//Manipulimi per vendosjen e fotos ne label perkatese
 				ImageIcon icon=new ImageIcon(filename);
@@ -552,6 +737,8 @@ public class HOTELS extends JFrame {
 				Image newImg=img.getScaledInstance(lblSingleImage.getWidth(),lblSingleImage.getHeight(),Image.SCALE_SMOOTH);
 				ImageIcon newIcon=new ImageIcon(newImg);
 				lblSingleImage.setIcon(newIcon);
+				
+				
 				
 			}
 		});
@@ -569,6 +756,8 @@ public class HOTELS extends JFrame {
 				chooser.showOpenDialog(null);
 				File f=chooser.getSelectedFile();
 				String filename=f.getAbsolutePath();
+				
+				doubleRoomPath=filename;//ruajme path te imazhit per ruajte ne databaze
 				
 				ImageIcon icon=new ImageIcon(filename);
 				Image img=icon.getImage();
@@ -593,6 +782,8 @@ public class HOTELS extends JFrame {
 				chooser.showOpenDialog(null);
 				File f=chooser.getSelectedFile();
 				String filename=f.getAbsolutePath();
+				
+				twinRoomPath=filename;//ruajme path te imazhit per ruajte ne databaze
 				
 				ImageIcon icon=new ImageIcon(filename);
 				Image img=icon.getImage();
@@ -670,23 +861,67 @@ public class HOTELS extends JFrame {
 		//butoni per regjistrimin e hoteleve
 		JButton btnRegister = new JButton("Register");
 		btnRegister.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0) { 
 				
 				try
 				{
+					
+					InputStream sis=new FileInputStream(new File(singleRoomPath));//inputstream per imazhin e singleroom
+					InputStream dis=new FileInputStream(new File(doubleRoomPath));
+					InputStream tis=new FileInputStream(new File(twinRoomPath));
+					
+					
+				//Statement per ruajtjen e queryt per insertimin e te dhenave ne tabelen hotels
+				PreparedStatement hst=connection.prepareStatement("INSERT INTO hotels (Name,Location,Password,Stars,singleRoomImg,doubleRoomImg,twinRoomImg) VALUES (?,?,?,?,?,?,?)");
+				hst.setString(1, txtName.getText());
+				hst.setString(2, txtLocation.getText());
+				hst.setString(3, passwordField.getText());
+				hst.setString(4,Integer.toString(stars));
+				hst.setBlob (5, sis);
+				hst.setBlob (6, dis);
+				hst.setBlob (7, tis);
+				hst.executeUpdate();
 				
-				//Statement per ruajtjen e queryt
-				PreparedStatement sst=connection.prepareStatement("INSERT INTO hotels (Name,Location,Password) VALUES (?,?,?)");
-				sst.setString(1, txtName.getText());
-				sst.setString(2, txtLocation.getText());
-				sst.setString(3, passwordField.getText());
-				sst.execute();
+				//marrim id e hotelit me te dhenat e meparshme
+				PreparedStatement prep=connection.prepareStatement("SELECT Hid FROM hotels WHERE Name=? AND Location=? AND Password=? AND Stars=?");
+				prep.setString(1, txtName.getText());
+				prep.setString(2, txtLocation.getText());
+				prep.setString(3, passwordField.getText());
+				prep.setString(4,Integer.toString(stars));
+				ResultSet rs=prep.executeQuery();
+				rs.next();
+				
+				
+				//Statement per ruajtjen e queryt per insertimin e te dhenave ne tabelen freeservice per hotelin paraprak
+				PreparedStatement freest=connection.prepareStatement("INSERT INTO freeServices (Hid,RoomService,ConferenceRoom,WIFI,ArcadeRoom,Sauna,Pool,Alcohol,Spa) VALUES ("+rs.getString("Hid")+",?,?,?,?,?,?,?,?)");
+				freest.setString(1, RoomService);
+				freest.setString(2, ConferenceRoom);
+				freest.setString(3, WIFI);
+				freest.setString(4, ArcadeRoom);
+				freest.setString(5, Sauna);
+				freest.setString(6, Pool);
+				freest.setString(7, Alcohol);
+				freest.setString(8, Spa);
+				freest.executeUpdate();
+				
+				//Statement per ruajtjen e queryt per insertimin e te dhenave ne tabelen paidservice per hotelin paraprak
+				PreparedStatement pst=connection.prepareStatement("INSERT INTO paidservice (Hid,RoomService,ConferenceRoom,WIFI,ArcadeRoom,Sauna,Pool,Alcohol,Spa) VALUES ("+rs.getString("Hid")+",?,?,?,?,?,?,?,?)");
+				pst.setString(1, pRoomService);
+				pst.setString(2, pConferenceRoom);
+				pst.setString(3, pWIFI);
+				pst.setString(4, pArcadeRoom);
+				pst.setString(5, pSauna);
+				pst.setString(6, pPool);
+				pst.setString(7, pAlcohol);
+				pst.setString(8, pSpa);
+				pst.executeUpdate();
+				
+				hst.close();
+				prep.close();
+				freest.close();
+				pst.close();
 				
 				JOptionPane.showMessageDialog(null,"Jeni regjistruar me sukses");
-				
-				
-				
-				sst.close();
 				
 				}
 				catch(Exception e)
